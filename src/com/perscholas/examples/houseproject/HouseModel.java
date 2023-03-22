@@ -1,42 +1,38 @@
 package com.perscholas.examples.houseproject;
 
 public class HouseModel {
+    private static final double MIN_WIDTH = 2.4;
+    private static final double MAX_WIDTH = 2.4;
+    private static final double MIN_LENGTH = 2.4;
+    private static final double MAX_LENGTH = 26.4;
+    private static final double MIN_HEIGHT = 2.2;
+    private static final double MAX_HEIGHT = 4.7;
 
-    HouseDimension houseDim;
-    private double width;
-    private double length;
-    private double height;
-    public HouseModel(double width, double length, double height, HouseDimension obj) {
-        this.houseDim = obj;
-        this.width = width;
-        this.length = length;
-        this.height = height;
+    private final HouseDimension width = new HouseDimension(MIN_WIDTH, MAX_WIDTH);
+    private final HouseDimension length = new HouseDimension(MIN_LENGTH, MAX_LENGTH);
+    private final HouseDimension height = new HouseDimension(MIN_HEIGHT, MAX_HEIGHT);
+
+    public double getCurrentWidth() {
+        return width.getCurrent();
     }
 
-    public double getWidth() {
-        return width;
+    public void setCurrentWidth(double current){
+        width.setCurrent(current);
     }
 
-    public void setWidth(double width) {
-        this.houseDim.setCurrent(width);
-        this.width = this.houseDim.getCurrent();
+    public double getCurrentLength() {
+        return length.getCurrent();
     }
 
-    public double getLength() {
-        return length;
+    public void setCurrentLength(double current){
+        length.setCurrent(current);
     }
 
-    public void setLength(double length) {
-        this.houseDim.setCurrent(length);
-        this.length = this.houseDim.getCurrent();
+    public double getCurrentHeight() {
+        return height.getCurrent();
     }
 
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.houseDim.setCurrent(height);
-        this.height = this.houseDim.getCurrent();
+    public void setCurrentHeight(double current){
+        height.setCurrent(current);
     }
 }

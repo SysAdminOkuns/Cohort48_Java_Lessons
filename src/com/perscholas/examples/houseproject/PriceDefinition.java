@@ -1,27 +1,16 @@
 package com.perscholas.examples.houseproject;
 
+import java.math.BigDecimal;
+
 public class PriceDefinition {
 
-    //    price per square meter
-    private final double floor_price;
-    private double wall_price;
-    private double carport_price;
+    private final BigDecimal floorPrice;
 
-    public PriceDefinition(double floor_price, double wall_price, double carport_price){
-        this.floor_price = floor_price;
-        this.wall_price = wall_price;
-        this.carport_price = carport_price;
+    public PriceDefinition(BigDecimal floorPrice){
+        this.floorPrice = floorPrice;
     }
 
-    public double getFloor_price() {
-        return floor_price;
-    }
-
-    public double getWall_price() {
-        return wall_price;
-    }
-
-    public double getCarport_price() {
-        return carport_price;
+    public BigDecimal getFloorPrice(){
+        return floorPrice;
     }
 }

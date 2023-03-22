@@ -4,30 +4,17 @@ import java.math.BigDecimal;
 
 public class PriceCalculator {
 
-    PriceDefinition pd;
-    AreaCalculator ac;
+    private final AreaCalculator areaCalculator;
+    private final PriceDefinition priceDefinition;
 
-    public PriceCalculator(PriceDefinition pd, AreaCalculator ac) {
-        this.pd = pd;
-        this.ac = ac;
+    public PriceCalculator(AreaCalculator areaCalculator, PriceDefinition priceDefinition){
+        this.areaCalculator = areaCalculator;
+        this.priceDefinition = priceDefinition;
     }
 
-    public BigDecimal calculatePrice() {
-        double floor_p = Double.valueOf(this.pd.getFloor_price()) * Double.valueOf(this.ac.calcArea());
-        BigDecimal floor_price = BigDecimal.valueOf(floor_p);
-        return floor_price;
-    }
-
-    public BigDecimal calculateWallPrice() {
-        double wall_p = Double.valueOf(this.pd.getWall_price()) * Double.valueOf(this.ac.calcWallArea());
-        BigDecimal wall_price = BigDecimal.valueOf(wall_p);
-        return wall_price;
-    }
-
-    public BigDecimal calculateCarPortPrice() {
-        double carPort_p = Double.valueOf(this.pd.getCarport_price()) * Double.valueOf(this.ac.calcCarPortArea());
-        BigDecimal carPort_price = BigDecimal.valueOf(carPort_p);
-        return carPort_price;
+    public BigDecimal getFloorPrice(){
+        var area = BigDecimal.valueOf(areaCalculator.getFloorArea());
+        return  area.multiply(priceDefinition.getFloorPrice());
     }
 }
 
