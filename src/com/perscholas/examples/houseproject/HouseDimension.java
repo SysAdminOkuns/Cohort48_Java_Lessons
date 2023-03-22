@@ -20,11 +20,13 @@ public class HouseDimension {
 
     public void setCurrent(double current) {
         if(current > maximum){
-            this.current = maximum;
+            current = maximum;
         }
         if(current < minimum){
-            this.current = minimum;
+            current = minimum;
         }
+
+        this.current = current;
     }
 }
 
